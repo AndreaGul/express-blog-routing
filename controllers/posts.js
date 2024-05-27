@@ -31,14 +31,15 @@ const show =(req,res)=>{
   
   res.format({ 
     html: () => {
-      const { titolo, contenuto, immagine, tags } = postRichiesto;
+      const { titolo, contenuto, immagine, tags, slug } = postRichiesto;
       let html = '<main><ul>';
       html += `
         <li>titolo: ${titolo}</li>
         <li>${contenuto}</li>
         <li><img width="200px" src="/${immagine}"/></li>
         <li>tags: ${tags}</li>
-        <a href="/${postRichiesto.immagine}" target="_blank"> visualizza immagine </li>`;
+        <li><a href="/${immagine}" target="_blank"> Visualizza immagine </li>
+        <li><a href="/posts/${ slug }/download" target="_blank"> Scarica immagine </li>`;
         
       html += '</ul><main>';
       res.send(html);
