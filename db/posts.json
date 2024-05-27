@@ -1,0 +1,38 @@
+[
+  {
+    "titolo": "Il Signore degli Anelli",
+    "contenuto": "Una trilogia epica fantasy scritta da J.R.R. Tolkien.",
+    "immagine": "nodeimage.jpeg",
+    "tags": "fantasy, avventura, epico"
+  },
+  {
+    "titolo": "1984",
+    "contenuto": "Un romanzo distopico di George Orwell che esplora i temi del totalitarismo e della sorveglianza.",
+    "immagine": "nodeimage.jpeg",
+    "tags": "distopia, politica, classico"
+  },
+  {
+    "titolo": "Il Grande Gatsby",
+    "contenuto": "Un romanzo di F. Scott Fitzgerald ambientato negli anni '20, che racconta la vita di Jay Gatsby e il sogno americano.",
+    "immagine": "nodeimage.jpeg",
+    "tags": "classico, anni '20, sogno americano"
+  },
+  {
+    "titolo": "To Kill a Mockingbird",
+    "contenuto": "Un romanzo di Harper Lee che affronta temi di razzismo e ingiustizia nel sud degli Stati Uniti.",
+    "immagine": "nodeimage.jpeg",
+    "tags": "razzismo, giustizia, classico"
+  },
+  {
+    "titolo": "Il Codice da Vinci",
+    "contenuto": "Un thriller di Dan Brown che segue il professor Robert Langdon in una serie di misteri legati all'arte e alla religione.",
+    "immagine": "nodeimage.jpeg",
+    "tags": "thriller, mistero, arte"
+  },
+  {
+    "titolo": "Harry Potter e la Pietra Filosofale",
+    "contenuto": "Il primo libro della celebre serie fantasy scritta da J.K. Rowling, che segue le avventure del giovane mago Harry Potter.",
+    "immagine": "nodeimage.jpeg",
+    "tags": "fantasy, magia, avventura"
+  }
+]
