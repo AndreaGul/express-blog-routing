@@ -1,8 +1,9 @@
+const posts = require('../db/posts.json');
 const { readJSON } = require('../utils');
 
-module.exports = {
-  list: (req, res) => {
-    const posts = readJSON('posts');
+
+const index = (req, res) => {
+    
     res.format({
       html: () => {
         let html = '<main><ul>';
@@ -20,5 +21,10 @@ module.exports = {
         res.json(posts);
       },
     });
-  },
-};
+  }
+
+
+
+module.exports ={
+  index,
+}
