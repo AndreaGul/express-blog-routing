@@ -36,14 +36,30 @@ const show =(req,res)=>{
     }else{
       res.status(404).json({
         error: 'Not Found',
-        description: `Non esiste una pizza con slug ${slugPostsRichiesto}`
+        description: `Non esiste un post con slug ${slugPostsRichiesto}`
       })
     }
   }})
  
 }
 
+const create = (req,res)=>{
+  res.format({
+    html:()=>{ 
+      res.send("<h1>Creazione nuovo post</h1>");
+    },
+    default:()=>{
+      res.status(406).send({
+        error:"Not found",
+        description: `Richiesta non valida in json`
+      })
+    }
+  })
+ 
+}
+
 module.exports ={
   index,
   show,
+  create,
 }
