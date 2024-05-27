@@ -10,7 +10,7 @@ const index = (req, res) => {
       html: () => {
         let html = '<main><ul>';
         posts.forEach(({ titolo, contenuto, immagine, tags }) => {
-          html += `<li>Film</li>
+          html += `
           <li>titolo: ${titolo}</li>
           <li>${contenuto}</li>
           <li><img width="200px" src="/${immagine}"/></li>
@@ -28,7 +28,21 @@ const index = (req, res) => {
 const show =(req,res)=>{
   const slugPostsRichiesto = req.params.slug;
   const postRichiesto= posts.find( post => post.slug === slugPostsRichiesto);
+  
   res.format({ 
+    html: () => {
+      const { titolo, contenuto, immagine, tags } = postRichiesto;
+      let html = '<main><ul>';
+      html += `
+        <li>titolo: ${titolo}</li>
+        <li>${contenuto}</li>
+        <li><img width="200px" src="/${immagine}"/></li>
+        <li>tags: ${tags}</li>
+        <a href="/${postRichiesto.immagine}" target="_blank"> visualizza immagine </li>`;
+        
+      html += '</ul><main>';
+      res.send(html);
+    },
     json:()=>{
     if(postRichiesto){
       res.json({
