@@ -9,12 +9,15 @@ const index = (req, res) => {
     res.format({
       html: () => {
         let html = '<main><ul>';
-        posts.forEach(({ titolo, contenuto, immagine, tags }) => {
+        posts.forEach(({ titolo, contenuto, immagine, tags, slug }) => {
           html += `
           <li>titolo: ${titolo}</li>
           <li>${contenuto}</li>
           <li><img width="200px" src="/${immagine}"/></li>
-          <li>tags: ${tags}</li>`;
+          <li>tags: ${tags}</li>
+          <li>tags: ${tags}</li>
+          <li><a href="/posts/${ slug }" > Visualizza post </a></li><br></br>`;
+          
         });
         html += '</ul><main>';
         res.send(html);
@@ -38,8 +41,8 @@ const show =(req,res)=>{
         <li>${contenuto}</li>
         <li><img width="200px" src="/${immagine}"/></li>
         <li>tags: ${tags}</li>
-        <li><a href="/${immagine}" target="_blank"> Visualizza immagine </li>
-        <li><a href="/posts/${ slug }/download" target="_blank"> Scarica immagine </li>`;
+        <li><a href="/${immagine}" target="_blank"> Visualizza immagine</a> </li>
+        <li><a href="/posts/${ slug }/download" target="_blank"> Scarica immagine </a></li>`;
         
       html += '</ul><main>';
       res.send(html);
