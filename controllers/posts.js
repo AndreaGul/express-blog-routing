@@ -1,6 +1,8 @@
+
 const posts = require('../db/posts.json');
 const { readJSON } = require('../utils');
-
+const path = require("path");
+const fs = require("fs");
 
 const index = (req, res) => {
     
@@ -58,8 +60,27 @@ const create = (req,res)=>{
  
 }
 
+const download = (req,res)=>{
+
+  const slugPostsRichiesto = req.params.slug;
+  const postRichiesto= posts.find( post => post.slug === slugPostsRichiesto);
+  if (!slugPostsRichiesto) {
+    return res.status(400).send('parametro del file mancante');
+  }
+  const imgPath = path.join(__dirname, `../public/${postRichiesto.immagine}`);
+  const extension = path.extname(imgPath);
+  if(extension !== '.jpeg'){
+    res.status(400).send(`Accesso negato a ${extension}`);
+  }else if(fs.existsSync(imgPath)){
+    res.download(imgPath);
+  }else{
+    res.status(404).send('File not found');
+  }
+}
+
 module.exports ={
   index,
   show,
   create,
+  download
 }
