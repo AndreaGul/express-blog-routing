@@ -23,8 +23,27 @@ const index = (req, res) => {
     });
   }
 
-
+const show =(req,res)=>{
+  const slugPostsRichiesto = req.params.slug;
+  const postRichiesto= posts.find( post => post.slug === slugPostsRichiesto);
+  res.format({ 
+    json:()=>{
+    if(postRichiesto){
+      res.json({
+        ...postRichiesto,
+        
+      });
+    }else{
+      res.status(404).json({
+        error: 'Not Found',
+        description: `Non esiste una pizza con slug ${slugPostsRichiesto}`
+      })
+    }
+  }})
+ 
+}
 
 module.exports ={
   index,
+  show,
 }
